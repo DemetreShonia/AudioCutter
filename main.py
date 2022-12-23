@@ -1,7 +1,11 @@
-from pydub import AudioSegment
-# from pydub.playback import play
+import wave
+obj = wave.open("Audios\Voice.wav","rb") #read binary
+print("Number of channels: ", obj.getnchannels())
+print("Sample Width ", obj.getsampwidth())
+print("frame rate ", obj.getframerate())
+print("Number of frames ", obj.getnframes())
+print("Parameters ", obj.getparams())
 
-f = open("Voice.mp3")
-f.close()
-sound = AudioSegment.from_mp3("Voice.mp3")
-# play(sound)
+t_audio = obj.getnframes() / obj.getframerate() # in seconds
+
+print(t_audio)
